@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0305bf1-db7b-4a07-a3d8-b377fac93f37" name="Changes" comment="" />
+    <list default="true" id="a0305bf1-db7b-4a07-a3d8-b377fac93f37" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ensemble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ensemble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EnsembleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EnsembleTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feuille.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feuille.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JolieAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JolieAffichage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Noeud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Noeud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NoeudAbstrait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NoeudAbstrait.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tp3-willy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tp3-willy.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Odf4p6DgbpbbCKpu3MtY92BY7N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -13,12 +36,78 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projets\tp3-willy\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.EnsembleTests">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="tp3-willy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnsembleTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tp3-willy" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EnsembleTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnsembleTests.inserer0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tp3-willy" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EnsembleTests" />
+      <option name="METHOD_NAME" value="inserer0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnsembleTests.inserer4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tp3-willy" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EnsembleTests" />
+      <option name="METHOD_NAME" value="inserer4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnsembleTests.inserer5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tp3-willy" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="EnsembleTests" />
+      <option name="METHOD_NAME" value="inserer5" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.EnsembleTests" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.EnsembleTests.inserer0" />
+        <item itemvalue="JUnit.EnsembleTests.inserer5" />
+        <item itemvalue="JUnit.EnsembleTests.inserer4" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -29,5 +118,16 @@
       <updated>1681895195654</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

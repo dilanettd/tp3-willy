@@ -1,5 +1,3 @@
-package inf2120.tp3;
-
 /**
  * Structure représentant un Ensemble de valeur entière.
  * Ces valeurs doivent être positives.  Le comportement de
@@ -55,6 +53,23 @@ public class Ensemble {
      *                ne doit pas être négatif.
      */
     public void inserer( int element ) {
+        if(this.nbValeur==0){
+            this.racine = new Feuille(element);
+            this.nbValeur++;
+        }else if (this.nbValeur==1){
+           Feuille feuille =  (Feuille) this.racine;
+           int premierElement = feuille.getElement();
+           if(premierElement!=element){
+               Noeud noeud = new Noeud(this.ratio);
+               noeud.getEnfants()[premierElement%this.ratio] = new Feuille(premierElement/this.ratio);
+               noeud.getEnfants()[element%this.ratio] = new Feuille(element/this.ratio);
+               this.racine = noeud;
+               this.nbValeur++;
+           }
+        }else {
+            Noeud noeud = (Noeud) this.racine;
+            insertRecursive(element, noeud);
+        }
     }
 
     /**
@@ -66,6 +81,20 @@ public class Ensemble {
      *                supprimé ne doit pas être négatif.
      */
     public void supprimer( int element ) {
+        if(this.nbValeur>0){
+            if (this.nbValeur==1){
+                Feuille feuille =  (Feuille) this.racine;
+                int premierElement = feuille.getElement();
+                if(premierElement==element){
+                    this.racine=null;
+                    this.nbValeur--;
+                }
+            } else {
+                Noeud noeud = (Noeud) this.racine;
+                supprimerRecursive(element, noeud,null,-1);
+                supprimerNoeudsNull( noeud,null,-1);
+            }
+        }
     }
 
     /**
@@ -75,7 +104,21 @@ public class Ensemble {
      * @return true si l'élément est dans l'ensemble, false sinon.
      */
     public boolean appartient( int element ) {
-        return false;
+        Boolean resultat = false;
+        if (this.nbValeur>0 ) {
+         if (this.nbValeur==1) {
+             Feuille feuille = (Feuille) this.racine;
+             int premierElement = feuille.getElement();
+             if (premierElement == element) {
+                 resultat = true;
+             }
+         }else {
+                Noeud noeud = (Noeud) this.racine;
+             resultat = rechercheRecursive(element,noeud);
+            }
+
+        }
+        return resultat;
     }
 
     /**
@@ -105,4 +148,85 @@ public class Ensemble {
 
         return jolie.resultat();
     }
+
+    /**
+     * Cette methode vérifie si un noeud est plain
+     * @param noeud Le noeud cible.
+     * @param element à insérer.
+     * @return true si l'indice est vide, false sinon.
+     */
+
+    public void insertRecursive(int element, Noeud noeud){
+        NoeudAbstrait enfant  = noeud.getEnfants()[element%ratio];
+        if (enfant == null) {
+            noeud.getEnfants()[(element)%ratio] = new Feuille(element/this.ratio);
+            this.nbValeur++;
+        } else if (enfant instanceof Feuille) {
+            Feuille feuille = (Feuille) noeud.getEnfants()[element%ratio];
+           int  premierElement = feuille.getElement();
+            if (premierElement == element/this.ratio) {
+                return;
+            } else {
+                Noeud noeud1 = new Noeud(this.ratio);
+                noeud1.getEnfants()[premierElement%this.ratio] =  new Feuille(premierElement/this.ratio);
+                noeud1.getEnfants()[(element/this.ratio)%this.ratio] =  new Feuille(element/(this.ratio*this.ratio));
+                noeud.getEnfants()[element%ratio]=noeud1;
+                this.nbValeur++;
+            }
+
+        }else {
+            insertRecursive(element/this.ratio, (Noeud) noeud.getEnfants()[element%ratio]);
+        }
+    }
+
+    public Boolean rechercheRecursive(int element, Noeud noeud){
+        Boolean resultat = false;
+        NoeudAbstrait enfant  = noeud.getEnfants()[element%this.ratio];
+        if (enfant != null) {
+            if (enfant instanceof Feuille){
+                Feuille feuille = (Feuille) enfant;
+                if(feuille.getElement() == element/this.ratio){
+                    return true;
+                }
+            } else if(enfant instanceof Noeud) {
+                resultat = rechercheRecursive(element/this.ratio, (Noeud) enfant);
+            }
+        }
+        return resultat;
+    }
+
+
+    private void supprimerRecursive(int element, Noeud noeud, Noeud parent,int index) {
+        NoeudAbstrait enfant = noeud.getEnfants()[element%ratio];
+        if (enfant instanceof Feuille) {
+            Feuille feuille = (Feuille) enfant;
+            if (feuille.getElement() == element/this.ratio) {
+                noeud.getEnfants()[element%ratio] = null;
+                nbValeur--;
+                if (noeud.estVide()) {
+                    if(parent!=null){
+                        parent.getEnfants()[index]=null;
+                    }
+                }
+            }
+        } else {
+            supprimerRecursive(element / this.ratio, (Noeud)  noeud.getEnfants()[element%this.ratio],noeud,element % this.ratio);
+        }
+
+    }
+
+    public void supprimerNoeudsNull(Noeud noeud, Noeud parent, int index) {
+        for (int i = 0; i < this.ratio; i++) {
+            NoeudAbstrait enfant = noeud.getEnfants()[i];
+            if (enfant instanceof Noeud) {
+                supprimerNoeudsNull((Noeud) enfant, noeud, i);
+            } else if (enfant == null) {
+                noeud.getEnfants()[i] = null;
+            }
+        }
+        if (noeud.estVide() && parent != null) {
+            parent.getEnfants()[index] = null;
+        }
+    }
+
 }

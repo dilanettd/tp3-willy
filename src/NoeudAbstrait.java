@@ -1,5 +1,3 @@
-package inf2120.tp3;
-
 /**
  * Cette classe permet d'avoir un type représentant la racine et
  * les cases des tableaux.  Cela permet d'interchanger les

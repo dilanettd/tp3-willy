@@ -1,9 +1,8 @@
-package inf2120.tp3;
-
 /**
  * Cette classe permet de contenir un élément de l'ensemble.
  */
 class Feuille extends NoeudAbstrait {
+
     protected int element;
 
     public Feuille(int element) {
@@ -25,4 +24,13 @@ class Feuille extends NoeudAbstrait {
 
         return jolie.resultat();
     }
+
+    public int getElement() {
+        return element;
+    }
+
+    public void setElement(int element) {
+        this.element = element;
+    }
+
 }

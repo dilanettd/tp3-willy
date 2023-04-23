@@ -1,10 +1,10 @@
-package inf2120.tp3;
-
 /**
  * Cette classe contient l'information pour un Noeud.
  * Il permet de lier plusieurs enfants dans la structure.
  */
 class Noeud extends NoeudAbstrait {
+
+
     protected NoeudAbstrait[] enfants;
 
     public Noeud(int ratio) {
@@ -38,5 +38,21 @@ class Noeud extends NoeudAbstrait {
         jolieToString( jolie );
 
         return jolie.resultat();
+    }
+    public NoeudAbstrait[] getEnfants() {
+        return enfants;
+    }
+
+    public void setEnfants(NoeudAbstrait[] enfants) {
+        this.enfants = enfants;
+    }
+
+    public boolean estVide() {
+        for (NoeudAbstrait enfant : enfants) {
+            if (enfant != null) {
+                return false;
+            }
+        }
+        return true;
     }
 }

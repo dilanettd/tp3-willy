@@ -1,5 +1,3 @@
-package inf2120.tp3;
-
 public class JolieAffichage {
     public record Attribut ( String nom, String valeur ) {}
     public record Element ( String nom ) {}
