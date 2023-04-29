@@ -61,10 +61,8 @@ public class Ensemble {
            int premierElement = feuille.getElement();
            if(premierElement!=element){
                Noeud noeud = new Noeud(this.ratio);
-               noeud.getEnfants()[premierElement%this.ratio] = new Feuille(premierElement/this.ratio);
-               noeud.getEnfants()[element%this.ratio] = new Feuille(element/this.ratio);
                this.racine = noeud;
-               this.nbValeur++;
+               insererDansFeuilles(element,premierElement,noeud);
            }
         }else {
             Noeud noeud = (Noeud) this.racine;
@@ -82,18 +80,18 @@ public class Ensemble {
      */
     public void supprimer( int element ) {
         if(this.nbValeur>0){
-            if (this.nbValeur==1){
-                Feuille feuille =  (Feuille) this.racine;
-                int premierElement = feuille.getElement();
-                if(premierElement==element){
-                    this.racine=null;
-                    this.nbValeur--;
+                if(this.racine instanceof Feuille){
+                    Feuille feuille =  (Feuille) this.racine;
+                    int premierElement = feuille.getElement();
+                    if(premierElement==element){
+                        this.racine=null;
+                        this.nbValeur--;
+                    }
+                }else{
+                    Noeud noeud = (Noeud) this.racine;
+                    supprimerRecursive(element, noeud,null,-1);
+                    supprimerNoeudsNull( noeud,null,-1);
                 }
-            } else {
-                Noeud noeud = (Noeud) this.racine;
-                supprimerRecursive(element, noeud,null,-1);
-                supprimerNoeudsNull( noeud,null,-1);
-            }
         }
     }
 
@@ -168,15 +166,28 @@ public class Ensemble {
                 return;
             } else {
                 Noeud noeud1 = new Noeud(this.ratio);
-                noeud1.getEnfants()[premierElement%this.ratio] =  new Feuille(premierElement/this.ratio);
-                noeud1.getEnfants()[(element/this.ratio)%this.ratio] =  new Feuille(element/(this.ratio*this.ratio));
                 noeud.getEnfants()[element%ratio]=noeud1;
-                this.nbValeur++;
+                insererDansFeuilles(element/this.ratio,premierElement,noeud1);
             }
 
         }else {
             insertRecursive(element/this.ratio, (Noeud) noeud.getEnfants()[element%ratio]);
         }
+    }
+
+    public void insererDansFeuilles(int elementCurrent, int AncienElement, Noeud noeud){
+        if(elementCurrent%this.ratio!=(AncienElement%this.ratio)){
+            noeud.getEnfants()[AncienElement%this.ratio] =  new Feuille(AncienElement/this.ratio);
+            noeud.getEnfants()[elementCurrent%this.ratio] =  new Feuille(elementCurrent/this.ratio);
+            this.nbValeur++;
+        }else{
+            Noeud nouveauNoeud = new Noeud(this.ratio);
+            noeud.getEnfants()[elementCurrent%this.ratio] = nouveauNoeud;
+            insererDansFeuilles(elementCurrent/this.ratio,AncienElement/this.ratio,nouveauNoeud);
+        }
+
+
+
     }
 
     public Boolean rechercheRecursive(int element, Noeud noeud){
@@ -215,6 +226,7 @@ public class Ensemble {
 
     }
 
+
     public void supprimerNoeudsNull(Noeud noeud, Noeud parent, int index) {
         for (int i = 0; i < this.ratio; i++) {
             NoeudAbstrait enfant = noeud.getEnfants()[i];
@@ -227,6 +239,10 @@ public class Ensemble {
         if (noeud.estVide() && parent != null) {
             parent.getEnfants()[index] = null;
         }
+        if(nbValeur==0){
+            this.racine=null;
+        }
+
     }
 
 }
